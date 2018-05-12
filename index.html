@@ -1,32 +1,53 @@
-<style>
-html {
-  height: 150%;
-  background: #FFFFFF;
-}
-body { margin: 0; }
-.navbar {
-  background: #f4f4f4;
-  margin: 0; padding: 0;
-  list-style: none;
-  position: fixed;
-  width: 100%;
-}
-.navbar>li {
-  display: inline-block;
-}
-.navbar>li>a {
-  display: block;
-  text-decoration: none;
-  padding: 10px 20px;
-  color: white;
-}
-.navbar>li>a:hover {
-  background: deeppink;
-}
-</style>
-
-<ul class="navbar">
-  <li><a href="#">홈</a></li>
-  <li><a href="#">1번 메뉴</a></li>
-  <li><a href="#">2번 메뉴</a></li> 
-</ul>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery</title>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+      .top {
+        text-align: center;
+        background-color: #F4F4F4;
+        padding: 0; margin: 0;
+        width: 100%;
+      }
+      .ad {
+        text-align: center;
+        padding: 0; margin: 0;
+        width: 100%;
+      }
+      .jbFixed {
+        position: fixed;
+        top: 0px;
+      }
+    </style>
+    <script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script>
+      $( document ).ready( function() {
+        var jbOffset = $( '.jbMenu' ).offset();
+        $( window ).scroll( function() {
+          if ( $( document ).scrollTop() > jbOffset.top ) {
+            $( '.jbMenu' ).addClass( 'jbFixed' );
+          }
+          else {
+            $( '.jbMenu' ).removeClass( 'jbFixed' );
+          }
+        });
+      } );
+    </script>
+  </head>
+  <body>
+    <div class="jbTitle">
+      <h1>Site Title</h1>
+    </div>
+    <div class="jbMenu">
+      <p>
+<img src="https://i.imgur.com/LkQi1KL.png" height="50">
+      </p>
+    </div>
+    <div class="jbContent">
+    </div>
+  </body>
+</html>
