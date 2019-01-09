@@ -1,0 +1,839 @@
+<html lang="ko" class="" data-inboxsdk-session-id="1547002266064-0.38599666688884215"><head>
+		<meta http-equiv="content-Type" content="text/html; charset=utf-8"> 
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+
+ 
+
+
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="Cache-Control" content="max-age=0">
+	<meta http-equiv="Expires" content="Sat, 01 Dec 2001 00:00:00 GMT">
+	<meta name="format-detection" content="telephone=no">
+	<title>G마켓 GIFT CARD</title>
+	<link rel="apple-touch-icon-precomposed" href="http://image.gmarket.co.kr/Gmarket_Mobile_v2/icon_01.png">
+
+
+
+<link rel="stylesheet" type="text/css" href="http://script.gmarket.co.kr/mobile/css/common.css?v=4">
+
+	
+	<link rel="stylesheet" type="text/css" href="http://script.gmarket.co.kr/css/mobile/main/320/GiftCard/giftcard.css?v=7">
+
+
+
+	<script src="http://montelena.gmarket.co.kr/montelenaContainer.js?path=http://mobile.gmarket.co.kr/GiftCard/GiftCardListSend"></script><script type="text/javascript" src="http://script.gmarket.co.kr/js/mobile/main/common/montelena.js"></script>
+	<script type="text/javascript" src="http://script.gmarket.co.kr/js/mobile/main/common/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="http://script.gmarket.co.kr/js/mobile/main/common/handlebars-v1.1.2.js"></script>
+	<script type="text/javascript" src="http://script.gmarket.co.kr/js/mobile/main/common/GMobile.js?v=20170117"></script>
+	
+	<script type="text/javascript" src="http://script.gmarket.co.kr/js/mobile/guidGeneration.js"></script>
+	<script type="text/javascript" src="http://script.gmarket.co.kr/js/mitem/Common.js"></script>    
+	<script type="text/javascript">
+		var _ubLogActEnum = {
+			click: "click"
+		}
+		function _ubLog(code, act) {
+			if (typeof ubprofiler === 'object' && typeof ubprofiler.send === 'function') {
+				ubprofiler.send(
+              'event'         // behavior
+              , 'page'        // src
+              , 'm/1.0'       // id, version info
+              , 
+							{
+              	'url': document.location.href,  // url, required 
+              	'ref': document.referrer,       // referrer url, optional
+              	'act': act,                 // action, required
+              	'acode': code        // area code, required
+              });
+			}
+		}
+	</script>
+	<script type="text/javascript" src="http://script.gmarket.co.kr/js/mobile/main/common/swipeview.js"></script>
+	<script type="text/javascript" src="http://script.gmarket.co.kr/mobile/js/front_v4.js?v=4"></script>
+    <script type="text/javascript" src="http://script.gmarket.co.kr/js/mobile/main/common/UIUtil.js"></script>
+</head>
+<body style="">
+
+	<script type="text/javascript">
+		var CONST_RECENT_ITEMS_LAYER_DOMAIN_URL = "//mobile.gmarket.co.kr";
+	</script>
+	<!-- WRAPPER -->
+	<div id="wrap">
+        
+		
+ 
+	<!-- SKIP NAVI -->
+	<div class="hp">
+		<a href="#content">본문 바로가기</a>
+	</div>
+	<!-- //SKIP NAVI -->
+	<!-- HEADER -->
+	<div id="head" class="new  simple">
+		<div id="header_wrapper" class="section__header-wrapper"><div id="progress_icon" style="display:none"></div>
+
+
+<iframe id="getCartCount" width="0" height="0" style="border: 0; display: none;" src="https://mobile.gmarket.co.kr/Common/CartCount" __idm_frm__="1793"></iframe>
+
+
+
+	<div class="hd_wrap" id="header_st" style="display: none;">
+		
+
+		<h1><a href="#" class="sprite__header--after" onclick="GMHeader.goHome('http://mobile.gmarket.co.kr/?pCache=2019010911510723479'); return false;">Gmarket</a></h1>
+
+		<!-- SEARCH -->
+		<div id="header_search_layer" class="scb_hd">
+			<div class="scb">
+				<form id="search" name="searchForm" action="http://mobile.gmarket.co.kr/Search/Search" method="get" onsubmit="doSubmit(); return false;" accept-charset="utf-8">
+					<fieldset>
+						<div class="scb_sub">
+									<input id="scb_ip" placeholder="검색어를 입력해 주세요" type="search" name="topKeyword" onkeyup="sendKeywordOnce();" value="" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off"> 
+
+							<label for="scb_ip" class="hp">상품검색하기</label>
+						</div>
+								<button id="scb_del" type="button" class="del_btn sprite__header--after" style="display: none;" onclick="clearTopSearch();"><span>입력내용 삭제</span></button>
+
+						<button id="search_button" type="button" class="sc_btn sprite__header--after"><span>검색</span></button>
+						<div id="search_box" class="search_box focus sprite__header--before sprite__header--after" style="display:none;">
+							<div class="keyword_swipe" id="keyword_swipe" onscroll="searchBoxGD()">
+							</div>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+		<!-- //SEARCH -->
+
+		<div class="dret_btn">
+				<a href="http://sna.gmarket.co.kr/?fcd=717000004&amp;url=http%3a%2f%2fmescrow.gmarket.co.kr%2fko%2fcart" onclick="javascript:pdsClickLog('200000142','link',{});" class="cart sprite__header--after"> 
+		<span class="hp">장바구니</span>
+		<span class="num" id="cartIcon" style="display:none;"></span>
+	</a>
+
+		</div>
+
+		<div id="cancel_search_layer" class="cancl_btn" style="display: none;">
+			<a id="cancel_search_button" href="#" class="btn_close"><span>취소</span></a>
+		</div>
+
+	
+	</div>
+	<div id="bx_hd_blank"></div>
+	<div id="simple_header" style=""> 
+		<h1 class="logo"><a href="#" class="sp_hd sprite__header--after" onclick="GMHeader.goHome('http://mobile.gmarket.co.kr/?pCache=2019010911510723479'); return false;">Gmarket</a></h1>
+		<a href="#" id="simple_header_go_search" class="btn_search sp_hd sprite__header--after" onclick="SnaUrlFooter('717000007');pdsClickLog('200000145','utility',{});">검색 페이지로 이동</a> 
+			<a href="http://sna.gmarket.co.kr/?fcd=717000008&amp;url=http%3a%2f%2fmescrow.gmarket.co.kr%2fko%2fcart" onclick="pdsClickLog('200000146','link',{});" class="btn_cart sp_hd sprite__header--after">
+		장바구니<em class="cart_num" id="simple_cartIcon" style="display:none;"></em>
+	</a>
+
+		<h2 class="h_page" id="simple_header_title">GIFT CARD</h2>
+	</div>
+	<div id="simple_header_bar" class="ly_header_wrap" style="display: none;">
+		<h2 class="h_page" id="simple_header_bar_title">주문/결제</h2>
+		<a href="javascript:window.history.back();" onclick="SnaUrlFooter('717000022');pdsClickLog('200000160','utility',{});" class="ly_btn_close sp_hd">레이어 닫기</a>
+	</div>
+<script type="text/x-handlebars-template" id="search_box_template">
+	<ul>
+	{{#each this}}
+		<li><span><button type="button" class="word" index="{{@index}}">{{this}}</button><button type="button" class="del sp_hd">삭제</button></span></li>
+	{{/each}}
+		<li class="inp_blank search-box_text-field">검색</li>
+	</ul>
+</script>
+		<iframe id="getRecentItems" width="0" height="0" style="border: 0; display: none;" src="https://mobile.gmarket.co.kr/Common/RecentThings" __idm_frm__="1794"></iframe>
+		
+		
+		<script type="text/x-handlebars-template" id="searchKeywordLayerBannerTemplate">
+			<a href="{{LandingUrl}}" onclick="pdsClickLog('200002115', 'Link', {});"><img src="{{ImageUrl}}" alt="{{AltText}}"></a>
+		</script>
+		<script type="text/x-handlebars-template" id="headerRecentItem">
+			{{#each list}}
+			<li id="header_item_{{goodsCode}}">
+				<a href="http://mitem.gmarket.co.kr/Item?goodscode={{goodsCode}}" class="recent_prd"><img src="{{imageUrl}}" alt="" /></a>
+				<a href="#" class="btn_del" onclick="headerExtendedLayerController.recentItemsLayer.removeRecentItem('{{goodsCode}}'); return false;"><span class="sp_srch">삭제</span></a>
+			</li>
+			{{/each}}
+		</script>
+		<script type="text/x-handlebars-template" id="headerRecentKeyword">
+			{{#each list}}
+			<li>
+				<a href="#" class="srch_txt" onclick="goSearch('{{keyword}}'); return false;"><span>{{keyword}}</span></a>
+				<a href="#" class="btn_del" onclick="headerExtendedLayerController.recentKeywordsLayer.removeRecentKeyword('{{keyword}}', this); return false;"><span class="sp_srch">삭제</span></a>
+			</li>
+			{{/each}}
+		</script></div>
+		<script type="text/javascript">
+			//TODO by sue - 뺄지 말지... ㅎㅎ
+			window.__HEADER_FOOTER_DOMAIN_URL = "http://mobile.gmarket.co.kr";
+			var gmHeader = new GMHeader(false, 1, "");
+			
+			gmHeader.setAppHeaderTitle("GIFT CARD");
+			
+		</script>
+
+			<div class="cart_guage_layer"><!-- 장바구니 Guage Layer -->	<div class="blank_cover">		<div class="g30000 sp_sd" style="left: 232.2px;"></div><div class="g50000 sp_sd"></div>	</div>	<div class="guage">		<div class="guage_bar">게이지바<div class="cover"></div><div class="graph"></div></div>		<span class="guage_desc">10,300원 더 담으면 <span>2천원 적립</span></span>		<div class="guage_balloon" style="left: 30px;"><span class="balloon_money">0</span><div class="money_tip"></div></div></div></div></div><div class="section_srch" id="list_recent" style="display: none;">
+			<div class="other_wrap" id="header_extended_input_wrapper">
+				<a href="#" class="btn_voice" id="header_btn_voice">음성인식</a>
+				<a href="#" class="btn_qr" id="header_btn_qr">QR코드</a>
+				<a href="#" class="btn_barcode" id="header_btn_barcode">바코드</a>
+			</div>
+			<div class="banner_bigsmile" id="searchKeywordLayerBanner"></div>
+			
+			<div id="header_recent_wrapper">
+				<div id="header_have_recent_keyword" style="display: none;">
+					<ul class="srch_lst" id="header_recent_keyword_wrapper">
+					</ul>
+
+					<div class="btn_wrap" id="header_view_more" style="display: none;"> 
+						<button type="button" id="viewAllRecentKeywords" class="btn_more">더보기</button>
+					</div>
+		
+					<div class="btn_wrap" id=""> 
+						<button type="button" class="btn_gray" id="offRecentKeywords">자동저장 OFF</button>
+						<button type="button" class="btn_gray" id="removeAllRecentKeywords">전체삭제</button>
+					</div>
+				</div>
+
+				<div class="empty_wrap" id="header_no_recent_keyword" style="">
+					<p class="empty_txt">최근에 검색하신 상품이 없습니다.</p>
+				</div>
+		
+				<div class="empty_wrap" id="header_off_recent_keyword" style="display: none;">
+					<p class="empty_txt">최근 검색어 자동저장 기능을 <br>사용하시면 편리해요.</p>
+					<a href="#" class="btn_gray" id="onRecentKeywords">자동저장 ON</a>
+				</div>
+			</div><div id="scb_lyr" style="display: none;">
+				<ul class="relat_lst" id="relate_keyword"> 
+				</ul>
+				<ul class="srch_lst" id="recommend_keyword" style="display:none;"> 
+				</ul>
+			</div>
+			
+
+			
+			
+			
+
+			
+			<div class="scroll_wrap" id="list_recent_right" style="display: none;">
+				<div class="scroll_inner" id="scroll_in">
+					<ul class="recent_lst" id="header_recent_item_wrapper">
+					</ul>
+				</div>
+			</div>
+		
+			<ul style="display:none;">
+				<li class="more" id="li_view_more_recent_item" style="display: none;">
+					<a href="http://mmyg.gmarket.co.kr/Favorite/RecentItems" class="btn_more">더보기</a>
+				</li>
+			</ul>
+
+			<div class="scroll_wrap" id="header_no_recent_item">
+				<p class="empty_txt">최근에 본 상품이 없습니다.</p>
+			</div>
+			
+			<div class="bot_btnwrap">
+				<button type="button" class="btn_close" id="closeRecent">닫기</button>
+			</div>
+		</div>
+	<!--// HEADER -->
+
+		
+
+	<script type="text/javascript" src="http://script.gmarket.co.kr/js/mobile/giftcard.js?ver=1"></script>
+	<script type="text/javascript" src="http://script.gmarket.co.kr/js/mobile/kakao.link.js?ver=1"></script>
+<script type="text/javascript" language="javascript">
+	function ItemClick(TokenSeq) {
+
+		var param = "{ ";
+		param += "'TOKENSEQ':'" + $.trim(TokenSeq.toString()) + "',";
+		param += "'TYPE':'" + $.trim("SEND") + "'}";
+
+		$.ajax({
+			type: 'POST',
+			url: "/GiftCard/GetItemDetail",
+			contentType: "application/json;charset=utf-8",
+			data: param,
+			async: false,
+			success: function (data) {
+				ItemViewMake(data);
+			},
+			error: function (error) {
+				alert("Database 검색 실패!");
+				return;
+			}
+		});
+
+	}
+	function KakaoSend(TokenSeq) {
+
+		var param = "{ ";
+		param += "'TOKENSEQ':'" + $.trim(TokenSeq.toString()) + "' }";
+
+		$.ajax({
+			type: 'POST',
+			url: "/GiftCard/GetKakaoSendData",
+			contentType: "application/json;charset=utf-8",
+			data: param,
+			async: false,
+			success: function (data) {
+				executeURLLink(data);
+			},
+			error: function (error) {
+				alert("Kakao Send Data 검색 실패!");
+				return;
+			}
+		});
+
+	}
+	function stringnullchange(str) {
+		var val = str;
+		if (val == null) {
+			val = "&nbsp;";
+		}
+
+		return val;
+	}
+	function ItemViewMake(data) {
+		$("#listview").text("");
+		//상단 바인딩
+		//var html = "<div class='gc_total'>";
+		var html = "<div class='gc_set_move'>";
+		html = html + "<a class='gc_page_prev' href='GiftCardListSend'>리스트로 돌아가기</a>";
+		html = html + "</div>";
+		html = html + "<ul class='list_giftcard'>";
+		html = html + "<li><div>";
+		if (data.GiftSend.Price == 5000)
+			html = html + "<div class='img'><img src='http://image.gmarket.co.kr/Gmarket_Mobile_v2/640/giftcard/img_gc5000.jpg' alt='' /></div>";
+		else if (data.GiftSend.Price == 10000)
+			html = html + "<div class='img'><img src='http://image.gmarket.co.kr/Gmarket_Mobile_v2/640/giftcard/img_gc10000.jpg' alt='' /></div>";
+		else if (data.GiftSend.Price == 30000)
+			html = html + "<div class='img'><img src='http://image.gmarket.co.kr/Gmarket_Mobile_v2/640/giftcard/img_gc30000.jpg' alt='' /></div>";
+		else if (data.GiftSend.Price == 50000)
+			html = html + "<div class='img'><img src='http://image.gmarket.co.kr/Gmarket_Mobile_v2/640/giftcard/img_gc50000.jpg' alt='' /></div>";
+		else if (data.GiftSend.Price == 100000)
+			html = html + "<div class='img'><img src='http://image.gmarket.co.kr/Gmarket_Mobile_v2/640/giftcard/img_gc100000.jpg' alt='' /></div>";
+		else if (data.GiftSend.Price == 200000)
+			html = html + "<div class='img'><img src='http://image.gmarket.co.kr/Gmarket_Mobile_v2/640/giftcard/img_gc200000.jpg' alt='' /></div>";
+		html = html + "<div class='cont'>";
+		html = html + "<strong class='txt_state type02'>" + data.GiftSend.StatNM + "</strong>";
+		html = html + "<ul class='set_info'>";
+		html = html + "<li><span class='s_tit'>수신인</span>" + stringnullchange(data.GiftSend.RcvNM) + "</li>";
+		//html = html + "<li><span class='s_tit'>취소팝업테스트용</span>" + data.GiftSend.TranswayNM + " <a href='#' class='txt_link' onclick='popCancelResend(\"" + data.GiftSend.TokenSeq + "\",\"" + data.GiftSend.RcvNM + "\");'><span>수신인 번호변경</span></a></li>";
+		if (data.GiftSend.TranswayNM == "휴대폰" && data.GiftSend.Stat == "U" && data.GiftSend.rsvTransYN == "N" && data.GiftSend.SuccYN == "N")
+			html = html + "<li><span class='s_tit'>발송방법</span>" + data.GiftSend.TranswayNM + " <a href='#' class='txt_link' onclick='popCancelResend(\"" + data.GiftSend.TokenSeq + "\",\"" + data.GiftSend.RcvNM + "\");'><span>수신인 번호변경</span></a></li>";
+		else if (data.GiftSend.TranswayNM == "휴대폰" && data.GiftSend.Stat == "N" && data.GiftSend.rsvTransYN == "N" && data.GiftSend.SuccYN == "Y")
+			html = html + "<li><span class='s_tit'>발송방법</span>" + data.GiftSend.TranswayNM + " <a href='#' class='txt_link' onclick='popResend(\"" + data.GiftSend.TokenSeq + "\",\"" + data.GiftSend.RcvNM + "\");'><span>재발송</span></a></li>";
+		else if (data.GiftSend.TranswayNM == "카카오톡" && data.GiftSend.Stat == "N" && data.GiftSend.MobileRetransCnt == "0")
+			html = html + "<li><span class='s_tit'>발송방법</span>" + data.GiftSend.TranswayNM + " <a href='#' class='txt_link' onclick='javascript:KakaoSend(" + data.GiftSend.TokenSeq + ");'><span>친구선택</span></a></li>";
+		else if (data.GiftSend.TranswayNM == "카카오톡" && data.GiftSend.Stat == "N" && data.GiftSend.MobileRetransCnt != "0")
+			html = html + "<li><span class='s_tit'>발송방법</span>" + data.GiftSend.TranswayNM + " <a href='#' class='txt_link' onclick='javascript:KakaoSend(" + data.GiftSend.TokenSeq + ");'><span>재발송</span></a></li>";
+		else
+			html = html + "<li><span class='s_tit'>발송방법</span>" + data.GiftSend.TranswayNM + " </li>";
+		html = html + "</ul>";
+		html = html + "</div>";
+		html = html + "</div></li>";
+		html = html + "</ul>";
+		html = html + "<div class='box_gc_view b_nomarin'>";
+		html = html + "<ul>";
+		html = html + "<li><span>GIFT CARD 번호</span>" + data.GiftSend.TokenSeq + "</li>";
+		if (data.GiftSend.Price == 5000)
+			html = html + "<li><span>GIFT CARD 종류</span>5,000원권</li>";
+		else if (data.GiftSend.Price == 10000)
+			html = html + "<li><span>GIFT CARD 종류</span>10,000원권</li>";
+		else if (data.GiftSend.Price == 30000)
+			html = html + "<li><span>GIFT CARD 종류</span>30,000원권</li>";
+		else if (data.GiftSend.Price == 50000)
+			html = html + "<li><span>GIFT CARD 종류</span>50,000원권</li>";
+		else if (data.GiftSend.Price == 100000)
+			html = html + "<li><span>GIFT CARD 종류</span>100,000원권</li>";
+		else if (data.GiftSend.Price == 200000)
+			html = html + "<li><span>GIFT CARD 종류</span>200,000원권</li>";
+		if (data.GiftSend.TranswayNM == "휴대폰" && data.GiftSend.rsvTransYN == "Y")
+			html = html + "<li><span>발송방법</span>" + data.GiftSend.TranswayNM + " <em class='gc_txt_gt01'>예약발송</em></li>";
+		else
+			html = html + "<li><span>발송방법</span>" + data.GiftSend.TranswayNM + " </li>";
+		if (data.GiftSend.TranswayNM == "휴대폰") {
+			//html = html + "<li><span>수신인</span>" + data.GiftSend.sendNM + "</li>";
+			html = html + "<li><span>휴대폰번호</span>" + data.GiftSend.RcvNM + "</li>";
+			html = html + "<li><span>구매일시</span>" + data.GiftSend.BuyDT + "</li>";
+			html = html + "<li><span>발송일자</span>" + data.GiftSend.SendDT + " </li>";
+			html = html + "<li><span>선물메세지</span>" + data.GiftSend.SendMsg + "</li>";
+		}
+		else if (data.GiftSend.TranswayNM == "PLASTIC CARD") {
+			html = html + "<li><span>수신인</span>" + stringnullchange(data.GiftSend.DelRCVNM) + "</li>";
+			html = html + "<li><span>구매일시</span>" + data.GiftSend.BuyDT + "</li>";
+			html = html + "<li><span>발송일자</span>" + stringnullchange(data.GiftSend.TransRegDT) + " </li>";
+			html = html + "<li><span>배송주소</span>" + stringnullchange(data.GiftSend.DelFrontAddress) + " " + stringnullchange(data.GiftSend.DelBackAddress) + " </li>";
+			html = html + "<li><span>연락처</span>" + stringnullchange(data.GiftSend.Telno) + "</li>";
+		}
+		else if (data.GiftSend.TranswayNM == "G마켓ID") {
+			//html = html + "<li><span>발신인</span>" + data.GiftSend.sendNM + "</li>";
+			html = html + "<li><span>수신GID</span>" + data.GiftSend.RcvNM + "</li>";
+			html = html + "<li><span>구매일시</span>" + data.GiftSend.BuyDT + "</li>";
+			html = html + "<li><span>발송일자</span>" + data.GiftSend.SendDT + " </li>";
+			html = html + "<li><span>선물메세지</span>" + data.GiftSend.SendMsg + "</li>";
+		}
+		else if (data.GiftSend.TranswayNM == "카카오톡") {
+			html = html + "<li><span>구매일시</span>" + data.GiftSend.BuyDT + "</li>";
+			html = html + "<li><span>발송일자</span>" + data.GiftSend.SendDT + " </li>";
+		}
+		html = html + "</ul>";
+		html = html + "</div>";
+
+
+
+		jQuery("#listview").append(html);
+	}
+	function executeURLLink(data) {
+		/* 
+		msg, url, appid, appname은 실제 서비스에서 사용하는 정보로 업데이트되어야 합니다. 
+		*/
+		var price = data.GiftKakao.Price;
+		price = price.toFixed(0);
+		var sendmessage = data.GiftKakao.SenderMemo;
+		var authcode = data.GiftKakao.Auth16Code;
+		var url = "http://mobile.gmarket.co.kr" + "/GiftCard/GiftGate?RegCode=" + authcode;
+
+		kakao.link("talk").send({
+			//msg: "감사의 마음을 담아 보냅니다.\n상품명 : G마켓 선물권 " + price + "원\n유효기간 : 구매일로부터 5년\n인증번호 : " + authcode + "\n인증하기 : " + url + "\n이용안내 :\n1. G마켓 선물권 > 인증하기에서 인증번호 입력\n2. 선물 받은 금액이 현금잔고로 전환되었는지 확인\n3. 현금잔고로 쇼핑!\n이용문의 : 1566-5701",
+			msg: "G마켓 GiftCard가 도착했어요! \n" + sendmessage + "\nG마켓 사이트에서 현금처럼 사용할 수 있는 Gift Card입니다\n" + "-인증번호 : " + authcode + "\n-상품명 : G마켓 Gift Card " + price + "원\n-유효기간 : 구매일로부터 5년\n이용문의 : 1566-5701\n" + "\n이용안내 :\n1. G마켓 홈페이지 > G마켓 Gift Card페이지 > 등록하기에서 인증번호 입력\n(아래 URL을 누르면 바로 이동 가능합니다)\n2. 선물 받은 금액이 현금잔고로 전환되었는지 확인\n3. 현금잔고로 쇼핑하기!\n" + url + "\n(위 URL은 G마켓 App으로 연결 됩니다.)",
+			url: "",
+			appid: "Mobile.Gmarket.co.kr",
+			appver: "2.0",
+			appname: "G마켓",
+			type: "link"
+		});
+
+	}
+	function popResend(tokenseq, telno) {
+		var custno = "132156182";
+		var telnum = telno;
+		var tokensq = tokenseq;
+
+		$("#gc_layer_resend01").text("");
+		var html = "<div class='lay_tit'>휴대폰 재발송</div>";
+		html = html + "<div class='cont'>";
+		html = html + "<p class='s_txt01'>휴대폰 <span class='gc_txt_gt02'>" + telnum + "</span>로<br />재발송 하시겠습니까?</p>";
+		html = html + "<p class='s_txt02'>(최대 3회까지 재발송 가능합니다.)</p>";
+		html = html + "<div class='gc_set_btn'>";
+		html = html + "<a class='gc_btn04' href='#' onclick='javascript:DataResend(\"" + tokensq + "\",\"" + custno + "\",\"" + telnum + "\");'><span>재발송</span></a>";
+		html = html + "</div>";
+		html = html + "</div>";
+		html = html + "<a class='btn_close' href='#' onclick='popPositMid(\"gc_layer_resend01\"); return false;'><span>레이어닫기</span></a>";
+		jQuery("#gc_layer_resend01").append(html);
+
+		popPositMid('gc_layer_resend01');
+	}
+	function DataResend(tokenseq, custno, telno) {
+		var param = [
+				{ name: 'ticketNo', value: tokenseq }
+				];
+		$.ajax({
+			type: 'POST',
+			dataType: "json",
+			url: "/GiftCard/GiftCardDetailViewListResend",
+			data: param,
+			async: false,
+			success: function (result) {
+				if (result != null && result.length != "0") {
+					if (result.RetCode == -101 || result.RetCode == -102) { //1~2회 오류 입력 시
+						alert("사용할 수 없는 인증번호 입니다\n확인 후 다시 입력해 주세요.");
+					}
+					else if (result.RetCode == 3) {
+						alert("재발송은 3회까지 가능합니다. 재발송이 3회 이상 초과하였습니다.");
+						popPositMid('gc_layer_resend01');
+					}
+					else {
+						if (confirm("GiftCard 인증코드 재발송이 완료 되었습니다.")) {
+							parent.location.href = "/GiftCard/GiftCard";
+						}
+					}
+				}
+				else {
+					alert("GiftCard 인증코드 재발송 중 오류가 발생했습니다. 다시 한번 시도해 주시기 바랍니다.");
+				}
+			},
+			error: function (error) {
+				alert("GiftCard 인증코드 재발송 중 오류가 발생했습니다. 에러." + error.toString());
+			}
+		});
+	}
+	function popCancelResend(tokenseq, telno) {
+		var custno = "132156182";
+		var telnum = telno;
+		var tokensq = tokenseq;
+		var isiphone = "False";
+		var isandroid = "False";
+
+		$("#gc_layer_chg_number").text("");
+		var html = "<div class='lay_tit'>휴대폰 수신인 번호변경</div>";
+		html = html + "<div class='cont'>";
+		html = html + "<div class='box_new_nm'>";
+		html = html + "<span>신규번호</span>";
+		html = html + "<input type='number' id='phoneNumber1' class='gc_text' maxlength='11' onblur='javascript:NumFocusOut(this);' onkeyup='javascript:NumText(this);' />";
+		if (isiphone == "True" || isandroid == "True")
+			html = html + "<a class='gc_btn01' href='#' onclick='javascript:openPhoneAddress(1);'><span>폰주소록</span></a>";
+		html = html + "</div>";
+		html = html + "<div class='gc_set_btn'>";
+		html = html + "<a class='gc_btn04' href='#' onclick='javascript:DataCancelResend(\"" + tokensq + "\",\"" + custno + "\",\"" + telnum + "\");'><span>번호변경 발송</span></a>";
+		html = html + "</div>";
+		html = html + "</div>";
+		html = html + "<a class='btn_close' href='#' onclick='popPositMid(\"gc_layer_chg_number\"); return false;'><span>레이어닫기</span></a>";
+		jQuery("#gc_layer_chg_number").append(html);
+
+		popPositMid('gc_layer_chg_number');
+	}
+	function DataCancelResend(tokenseq, custno, telno) {
+		var Retelno = document.GiftCardOrder.phoneNumber1.value;
+		var param = [
+				{ name: 'ticketNo', value: tokenseq }, { name: 'telNo', value: Retelno }
+				];
+		$.ajax({
+			type: 'POST',
+			dataType: "json",
+			url: "/GiftCard/GiftCardCancelResend",
+			data: param,
+			async: false,
+			success: function (result) {
+				if (result != null && result.length != "0") {
+					if (result.RetCode == -100) { //1~2회 오류 입력 시
+						alert("GiftCard 인증코드 재발송 데이터 업데이트중 오류가 발생했습니다. 다시 한번 시도해 주시기 바랍니다.");
+					}
+					else if (result.RetCode == 10) {
+						if (confirm("GiftCard 인증코드 재발송이 완료 되었습니다.")) {
+							parent.location.href = "/GiftCard/GiftCard";
+						}
+					}
+					//					else {
+					//						if (confirm("선물권 인증코드 재발송이 완료 되었습니다.")) {
+					//							parent.location.href = "/GiftCard/GiftCard";
+					//						}
+					//					}
+				}
+				else {
+					alert("GiftCard 인증코드 재발송 데이터 업데이트중 오류가 발생했습니다. 다시 한번 시도해 주시기 바랍니다.");
+				}
+			},
+			error: function (error) {
+				alert("GiftCard 인증코드 재발송 데이터 업데이트중 오류가 발생했습니다. 에러.");
+			}
+		});
+	}
+	function moreClick() {
+		var nowpagecnt = parseInt(document.GiftCardOrder.nowpagecnt.value);
+		var totalpagecnt = parseInt(document.GiftCardOrder.totalpagecnt.value);
+		var totalrownum = parseInt(document.GiftCardOrder.totalrownum.value);
+		if (nowpagecnt == totalpagecnt) {
+			alert("끝 페이지 입니다.");
+			return false;
+		}
+		else {
+			$("#listsend" + nowpagecnt.toString() + "").show();
+
+			var showrowcnt = (nowpagecnt + 1) * 10;
+			if (totalrownum > showrowcnt) {
+				document.getElementById("btnmore").innerHTML = "<span><span>더보기</span> ( <span>" + showrowcnt.toString() + "</span>/" + totalrownum + ")</span>";
+			}
+			else {
+				document.getElementById("btnmore").innerHTML = "<span><span>더보기</span> ( <span>" + totalrownum.toString() + "</span>/" + totalrownum + ")</span>";
+			}
+			document.GiftCardOrder.nowpagecnt.value = (nowpagecnt + 1).toString();
+		}
+	}
+	function optionchange() {
+		var optval = document.GiftCardOrder.monthselect.value;
+		document.GiftCardOrder.shmonth.value = optval.toString();
+		document.GiftCardOrder.action = "GiftCardListSend";
+		document.GiftCardOrder.submit();
+	}
+	function rowadd(stat) {
+		document.GiftCardOrder.totalrownum.value = stat.toString();
+	}
+	function totaladd(stat) {
+		//var rowcnt = parseInt(document.GiftCardOrder.totalpagecnt.value);
+		//rowcnt = rowcnt + 1;
+		document.GiftCardOrder.totalpagecnt.value = stat.toString();
+	}
+	function openPhoneAddress(id) {
+		location.href = "gmarket://msgAppPresent?kind=address&id=" + id;
+	}
+
+	function setPhoneNumber(phoneNum, id) {
+		document.getElementById('phoneNumber' + id).value = phoneNum;
+	}
+	function NumFocusOut(obj) {
+		var objEv = event.srcElement;
+		var val = obj.value;
+		var numcheck = val.substr(0, 2);
+
+		if (numcheck != "01") {
+			alert("올바른 핸드폰 번호가 아닙니다.");
+			objEv.value = "";
+			return false;
+		} else {
+			if (val.length < 10 || val.length > 11) {
+				alert("올바른 핸드폰 번호가 아닙니다.");
+				objEv.value = "";
+				return false;
+			}
+			return true;
+		}
+	}
+	function NumText(obj) {
+		var objEv = event.srcElement;
+		var numPattern = /([^0-9|])/;
+		numPattern = objEv.value.match(numPattern);
+		if (numPattern != null) {
+			alert("숫자만 입력해 주세요!");
+			objEv.value = "";
+			objEv.focus();
+			return false;
+		} else {
+			return true;
+		}
+	}
+	$(document).ready(function () {
+		displayLayer("progress_icon", "none");
+
+		if ("True" == "True") {
+		}
+		else {
+			document.location.href = "https://mobile.gmarket.co.kr/Login/Login";
+		}
+		//popPositMid('gc_layer_regist02');	
+		//listmake();
+		document.GiftCardOrder.monthselect.value = document.GiftCardOrder.shmonth.value;
+
+	});
+	</script>
+
+<form action="/" id="GiftCardOrder" method="post" name="GiftCardOrder">
+<!-- CONTENT -->
+<div id="content" class="ctns">
+	<div class="gc_location">
+		<span><a href="GiftCard" style="color:White;">GIFT CARD</a></span>
+		<span>확인/재발송</span>
+	</div>
+	<ul class="gc_tab03">
+		<li class="on"><a href="GiftCardListSend"><span>보낸선물</span></a></li>
+		<li><a href="GiftCardListRsv"><span>받은선물</span></a></li>
+	</ul>
+		<!--	잘라서 새로 그릴 영역	-->
+		<div id="listview"><div class="gc_set_move"><a class="gc_page_prev" href="GiftCardListSend">리스트로 돌아가기</a></div><ul class="list_giftcard"><li><div><div class="img"><img src="http://image.gmarket.co.kr/Gmarket_Mobile_v2/640/giftcard/img_gc30000.jpg" alt=""></div><div class="cont"><strong class="txt_state type02">발송대기</strong><ul class="set_info"><li><span class="s_tit">수신인</span>박진경</li><li><span class="s_tit">발송방법</span>PLASTIC CARD </li></ul></div></div></li></ul><div class="box_gc_view b_nomarin"><ul><li><span>GIFT CARD 번호</span>300177726</li><li><span>GIFT CARD 종류</span>30,000원권</li><li><span>발송방법</span>PLASTIC CARD </li><li><span>수신인</span>박진경</li><li><span>구매일시</span>2019-01-09 오전 10:01:57</li><li><span>발송일자</span>&nbsp; </li><li><span>배송주소</span>서울특별시 마포구 성암로 267 MBC 예능본부 예능3국 박진경 앞</li><li><span>연락처</span>010-6702-2202</li></ul></div></div>
+	<!--	잘라서 새로 그릴 영역	-->
+
+	<!-- 휴대폰 재발송 레이어 -->
+	<div id="gc_layer_resend01" class="gc_layer gc_lay_resend">
+		<div class="lay_tit">휴대폰 재발송</div>
+		<div class="cont">
+			<p class="s_txt01">휴대폰 <span class="gc_txt_gt02">010-9703-1107</span>로<br>재발송 하시겠습니까?</p>
+			<p class="s_txt02">(최대 3회까지 재발송 가능합니다.)</p>
+			<div class="gc_set_btn">
+				<a class="gc_btn04" href="#"><span>재발송</span></a>
+			</div>
+		</div>
+		<a class="btn_close" href="#" onclick="popPositMid('gc_layer_resend01'); return false;"><span>레이어닫기</span></a>
+	</div>
+	<!-- //휴대폰 재발송 레이어 -->
+		
+	<!-- 휴대폰 수신인 번호변경 레이어 -->
+	<div id="gc_layer_chg_number" class="gc_layer gc_lay_chg_number">
+		<div class="lay_tit">휴대폰 수신인 번호변경</div>
+		<div class="cont">
+			<div class="box_new_nm">
+				<span>신규번호</span>
+				<input type="number" id="phoneNumber1" maxlength="11" onblur="javascript:NumFocusOut(this);" onkeyup="javascript:NumText(this);" class="gc_text">
+			</div>
+			<div class="gc_set_btn">
+				<a class="gc_btn04" href="#"><span>번호변경 발송</span></a>
+			</div>
+		</div>
+		<a class="btn_close" href="#" onclick="popPositMid('gc_layer_chg_number'); return false;"><span>레이어닫기</span></a>
+	</div>
+	<!-- //휴대폰 수신인 번호변경 레이어 -->		
+</div>
+<!-- //CONTENT -->
+
+<input type="hidden" id="nowpagecnt" name="nowpagecnt" value="1">
+<input type="hidden" id="shmonth" name="shmonth" value="1">
+			<hr>
+	<!-- FOOTER -->
+	<div id="foot" class="bar"><a id="footer_back" href="javascript:;" onclick="javascript:clickFooterBack();" style="display:none;" class="btn_prev"><span class="hp">이전</span></a>
+
+    
+
+<div id="footer_bar_menu" style="" class="section__tab-bar-sub">
+	<div class="f_bar_inner box__tab-bar-sub">
+		<ul class="nav list__menu">
+		<li class="btn_prev"><a href="javascript:SnaUrlFooter('717000027');pdsClickLog('200000165','utility',{});history.back();" class="sp_hd sprite__header--after">뒤로가기</a></li><!-- [D]비활성 disable 추가-->
+		<li class="btn_next"><a href="javascript:SnaUrlFooter('717000028');pdsClickLog('200000166','utility',{});history.forward();" class="sp_hd sprite__header--after">앞으로가기</a></li>
+		<li class="btn_home"><a href="http://sna.gmarket.co.kr/?fcd=717000029&amp;url=http%3a%2f%2fmobile.gmarket.co.kr" onclick="pdsClickLog('200000167','link',{});" class="sp_hd sprite__header--after">G마켓</a></li>
+		<li class="btn_menu">
+		<a href="http://sna.gmarket.co.kr/?fcd=717000030&amp;url=http%3a%2f%2fmobile.gmarket.co.kr%2fHome%2fLeftDrawer" onclick="pdsClickLog('200000168','utility',{});" class="sp_hd sprite__header--after">메뉴</a>
+		</li>
+		<li class="btn_my"><a href="http://sna.gmarket.co.kr/?fcd=717000031&amp;url=http%3a%2f%2fmmyg.gmarket.co.kr%2fhome" onclick="pdsClickLog('200000169','link',{});" class="sp_hd sprite__header--after">마이페이지</a></li>
+		<li id="rviLayer" class="recent_wrap disable" onclick="SnaUrlFooter('717000032');pdsClickLog('200000170','utility',{});"><!--[D] 최근본 상품이 있을 경우 btn_recent 버튼안에 img 넣어주세요 -->
+<button type="button " class="btn_recent sp_hd click_a sprite__header--after"><img id="rviRepImage" alt="상품이미지"></button>
+			
+<!--[D] 편집 버튼 누를 시 int_edit 클래스 추가 -->
+<div class="ly_recent">
+	<div class="art_titbx">
+		<h2 class="art_tit">최근 본 상품</h2>
+		<div class="btn_wrap">
+			<button class="btn edit">편집</button>
+			<a href="#" class="btn favor" id="rviGoFavoritePage">관심상품</a>
+		</div>
+		<div class="btn_wrap type2" style="display:none">
+			<button class="btn edit">취소</button> 
+			<button class="btn all" id="rviCheckAll">ALL</button>
+			<button class="btn favor" id="rviAddFavoritePage">관심상품</button>
+			<button class="btn share">공유하기</button>
+			<button class="btn del">삭제하기</button>
+		</div>
+	</div>
+	<div class="art_cntbx" id="recent-scr">
+		<div class="recen_bx">
+			<ul class="recen_lst" id="rvi_lst">
+			</ul>
+		</div>
+	</div>
+
+	<!--[D] 관심상품 등록 레이어 -->
+	<div class="ly_inter"><img src="http://pics.gmarket.co.kr/mobile/img_inter_chk.png" alt=""></div>
+	
+	<!--[D] 최근본 상품 삭제 레이어 -->
+	<div class="ly_del" style="display:none">
+		<p class="ly_intxt">해당 최근 본 상품을 <br>삭제하시겠습니까?</p>
+		<button type="button" class="btn_gray cancel">아니요</button>
+		<button type="button" class="btn_blue">예</button>
+	</div>
+	
+	<!--[D] 최근본 상품 삭제 된 후 노출 레이어 -->
+	<div class="ly_del comp" style="display:none">
+		<p class="ly_intxt">삭제되었습니다.</p>
+	</div>
+</div>
+
+<div class="share_sns" id="rvi_layer_sns">
+	<h4 class="tit">공유하기</h4>
+	<div class="sns">
+		<a href="javascript:if(CheckPc(MobileSnsUtil.snsType().KAKAOTALK) != false){RviShare(MobileSnsUtil.snsType().KAKAOTALK)};" class="cco">카카오톡</a>
+		<a href="javascript:RviShare(MobileSnsUtil.snsType().FACEBOOK);" class="face">페이스북</a>
+		<a href="javascript:RviShare(MobileSnsUtil.snsType().TWITTER);" class="twt">트위터</a>
+		<a href="javascript:RviShare(MobileSnsUtil.snsType().KAKAOSTORY);" class="ccos">카카오스토리</a>
+	</div>
+	<a href="#" class="close_sns" onclick="popBlockUI('rvi_layer_sns');return false;">닫기</a>
+</div>
+
+<iframe id="extGetRecentItemsIframe" width="0" height="0" style="border: 0; display: none;" title="빈프레임" src="https://mobile.gmarket.co.kr/Common/RecentThings" __idm_frm__="1795"></iframe>
+
+
+
+
+<script type="text/x-handlebars-template" id="recently_viewed_items_template">
+	{{#each this}}
+	{{#ifDateHasNotChanged insDate}}
+	<li>
+		<a href="{{vipUrl}}" class="inner"><img src="{{imageUrl}}" alt="상품이미지" /></a>
+		<input type="checkbox" id="re_chk{{@index}}" class="inp_chk" data-goodscode="{{goodsCode}}"/>
+		<label for="re_chk{{@index}}" class="chk_re">최근본 상품 선택</label>
+	</li>
+	{{else}}
+	<li>
+		<span class="date">{{insDate.month}}/{{insDate.date}}</span>
+		<a href="{{vipUrl}}" class="inner"><img src="{{imageUrl}}" alt="상품이미지" /></a>
+		<input type="checkbox" id="re_chk{{@index}}" class="inp_chk" data-goodscode="{{goodsCode}}"/>
+		<label for="re_chk{{@index}}" class="chk_re">최근본 상품 선택</label>
+	</li>
+	{{/ifDateHasNotChanged}}
+	{{/each}}
+</script></li><!-- [D] 최근 본 상품 없을경우 li에 disable 클래스 추가 -->
+		</ul>
+	</div>
+</div>
+	<div class="btn_area">
+		<a class="btn" href="http://m.gmarket.co.kr/Login/logout.asp">로그아웃</a>
+		<a class="btn" href="#" onclick="GMFooter.goPCWeb('http://www.gmarket.co.kr/?sL=MW'); return false;">PC버전</a>
+		<a class="btn" href="http://mobile.gmarket.co.kr/CustomerCenter">고객센터</a>
+	</div>
+    <div class="info_area">
+        <a href="#" class="btn_info">㈜이베이코리아 사업자 정보</a>
+        <div class="info_view">
+            <ul class="lst_view">
+                <li>
+                    <span class="tit">대표이사</span>
+                    <span class="txt">변광윤</span>
+                </li>
+                <li>
+                    <span class="tit">사업자등록번호</span>
+                    <span class="txt">220-81-83676</span>
+                </li>
+                <li>
+                    <span class="tit">통신판매업신고</span>
+                    <span class="txt">강남 10630호</span>
+                </li>
+                <li>
+                    <span class="tit">주소</span>
+                    <span class="txt">서울시 강남구 테헤란로 152(역삼동<br>강남파이낸스센터)</span>
+                </li>
+                <li>
+                    <span class="tit">고객센터</span>
+                    <span class="txt">1566-5701<br>gmarket@corp.gmarket.co.kr<br>상담가능시간 오전 9시~오후 6시<br>(토요일, 공휴일 휴무)</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="policy_area">
+        <a class="btn" href="http://www.ftc.go.kr/bizCommPop.do?wrkr_no=&amp;apv_perm_no=2006322008330210630">사업자정보확인</a>        <a class="btn" href="http://www.gmarket.co.kr/challenge/neo_help/policy01.asp">개인정보처리방침</a>
+        <a class="btn" href="http://mmyg.gmarket.co.kr/Service">이용약관</a>
+    </div>
+    <p class="info_dsc">G마켓은 통신판매중개자이며 통신판매의 당사자가 아닙니다. <br>따라서 G마켓은 상품/거래정보 및 가격에 대하여 책임을 지지 않습니다. <br>Copyright ©eBay Korea Co., Ltd. All rights reserved</p></div>
+	<script type="text/javascript">
+		var gmFooter = new GMFooter(false);
+		window.homeTabInteraction.init();
+	</script>
+	<!--// FOOTER -->
+
+	</form></div>
+	<!--// WRAPPER -->
+
+	
+	
+
+<script type="text/javascript" src="http://script.gmarket.co.kr/js/mobile/main/module/Ajax.js"></script>
+<script type="text/javascript" src="http://script.gmarket.co.kr/js/mobile/main/header/httpAjaxRequest.js"></script>
+<script type="text/javascript" src="http://script.gmarket.co.kr/js/mobile/main/common/util.js?ver=1"></script>
+
+<script type="text/javascript">
+	
+function doSubmit() {
+	//뒤공백 제거 후 비교
+	if ((document.searchForm.topKeyword.value).replace(/\s*$/, "") == "") {
+		alert("검색어를 입력해 주세요");
+	} else {
+		try {
+			recentKeywordsController.setRecentKeyword(document.searchForm.topKeyword.value);
+		} catch (e) { }
+		document.searchForm.submit();
+	}
+}
+
+
+function closeAppBanner()
+{
+	$('#app_baner').hide();
+}
+
+function fnSubFooterGoInstall() {
+	if (navigator.userAgent.indexOf("iPhone") > -1 || navigator.userAgent.indexOf("iPad") > -1 || navigator.userAgent.indexOf("iPod") > -1)
+		location.href = "http://itunes.apple.com/kr/app/gmarket/id340330132?mt=8";
+	else // 안드로이드
+		location.href = "market://market.android.com/details?id=com.ebay.kr.gmarket";
+}
+</script>
+	
+	
+
+</body></html>
